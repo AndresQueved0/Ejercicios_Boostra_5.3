@@ -1,0 +1,282 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Dashboard</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="icon" href="img/icon-tienda-removebg-preview.png">
+    <link href="https://cdn.lineicons.com/4.0/lineicons.css" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+
+<button class="btn border mx-3 mt-3 " data-bs-toggle="offcanvas" data-bs-target="#intro"> 
+    <i class="lni lni-menu"></i>
+</button>
+
+<div class="offcanvas offcanvas-start" style="width: auto;" id="intro">
+    <div class="offcanvas-header bg-dark d-flex align-items-center">
+        <button class="btn btn-danger" data-bs-dismiss="offcanvas">
+        <i class="lni lni-close"></i> 
+        </button>
+        <h1 class="fs-4 ms-4 text-white">Tienda JS</h1>
+    </div>
+    
+    <div class="offcanvas-body bg-dark">
+    <div class="position-relative" style="height: 100%;">
+        <ul class="nav flex-column">
+
+        <li class="nav-item">
+            <a href="inicio.html" class="nav-link text-white ms-1 d-flex align-items-center mb-3">
+            <i class="lni lni-home fs-3 me-3"></i>
+            Inicio
+            </a>
+        </li>
+
+    <li class="nav-item">
+        <a href="perfil.html" class="nav-link text-white ms-1 d-flex align-items-center" aria-current="page">
+        <i class="lni lni-user fs-3 me-3"></i>
+        Perfil
+        </a>
+    </li>
+
+    <li class="nav-item">
+        <a href="usuarios.html" class="nav-link text-white ms-1 d-flex align-items-center mb-3 mt-3">
+        <i class="lni lni-users fs-3 me-3"></i>
+        Usuarios
+        </a>
+    </li>
+
+    <li class="nav-item">
+        <a href="clientes.html" class="nav-link text-white ms-1 d-flex align-items-center mb-3">
+        <i class="lni lni-customer fs-3 me-3"></i>
+        Clientes
+        </a>
+    </li>
+
+    <li class="nav-item">
+        <a href="categorias.html" class="nav-link text-white ms-1 d-flex align-items-center mb-3">
+        <i class="lni lni-grid-alt fs-3 me-3"></i>
+        Categorias
+        </a>
+      </li>
+
+      <li class="nav-item">
+        <a href="productos.html" class="nav-link text-white ms-1 d-flex align-items-center mb-3">
+          <i class="lni lni-shopify fs-3 me-3"></i>
+          Productos
+        </a>
+      </li>
+
+      <li class="nav-item">
+        <a href="pedidos.html" class="nav-link text-white ms-1 d-flex align-items-center">
+          <i class="lni lni-cart-full fs-3 me-3"></i>
+          Pedidos
+        </a>
+      </li>
+    </ul>
+    <div class="dropdown position-absolute bottom-0">
+        <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
+          <img src="img/profile.png" alt="" width="32" height="32" class="rounded-circle me-2">
+          <p class="text-center my-auto fw-bold">AndresQueve0</p>
+        </a>
+        <ul class="dropdown-menu dropdown-menu-dark text-small shadow" aria-labelledby="dropdownUser1">
+          
+          <li><a class="dropdown-item" href="#">Ajustes</a></li>
+          
+          <li><hr class="dropdown-divider"></li>
+          <li><a class="dropdown-item" href="index.html">Desconectar</a></li>
+        </ul>
+      </div>
+      </div>
+      </div>
+    </div>
+
+  <div class="container">
+    <h1>Panel de clientes</h1>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>Apellido</th>
+                <th>Email</th>
+                <th>Teléfono</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody id="clientes">
+            <!-- Aquí se renderizarán los clientes -->
+        </tbody>
+    </table>
+    <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modal-create-cliente">Crear Cliente</button>
+</div>
+
+<!-- Modal para crear cliente -->
+<div class="modal" id="modal-create-cliente">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Crear Cliente</h5>
+                <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form id="form-create-cliente">
+                    <div class="form-group">
+                        <label for="nombre">Nombre</label>
+                        <input type="text" class="form-control" id="nombre" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="apellido">Apellido</label>
+                        <input type="text" class="form-control" id="apellido" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" class="form-control" id="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="telefono">Teléfono</label>
+                        <input type="tel" class="form-control" id="telefono" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Crear Cliente</button>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal para editar cliente -->
+<div class="modal" id="modal-edit-cliente">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Editar Cliente</h5>
+                <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form id="form-edit-cliente">
+                    <div class="form-group">
+                        <label for="nombre-edit">Nombre</label>
+                        <input type="text" class="form-control" id="nombre-edit" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="apellido-edit">Apellido</label>
+                        <input type="text" class="form-control" id="apellido-edit" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email-edit">Email</label>
+                        <input type="email" class="form-control" id="email-edit" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="telefono-edit">Teléfono</label>
+                        <input type="tel" class="form-control" id="telefono-edit" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Guardar Cambios</button>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Módulo Principal -->
+
+<!-- fin -->
+</div>
+</div>
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+    crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+    integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+    crossorigin="anonymous"></script>
+
+    <script>
+        // Array de clientes
+        let clientes = [
+            { id: 1, nombre: "Juan", apellido: "Pérez", email: "juan.perez@example.com", telefono: "1234567890" },
+            { id: 2, nombre: "María", apellido: "González", email: "maria.gonzalez@example.com", telefono: "9876543210" },
+            { id: 3, nombre: "Pedro", apellido: "Rodríguez", email: "pedro.rodriguez@example.com", telefono: "5551234567" }
+        ];
+
+        // Renderizar clientes
+        function renderClientes() {
+            let html = "";
+            clientes.forEach(cliente => {
+                html += `
+                    <tr>
+                        <td>${cliente.nombre}</td>
+                        <td>${cliente.apellido}</td>
+                        <td>${cliente.email}</td>
+                        <td>${cliente.telefono}</td>
+                        <td>
+                            <button class="btn-edit" data-id="${cliente.id}">Editar</button>
+                            <button class="btn-delete" data-id="${cliente.id}">Eliminar</button>
+                        </td>
+                    </tr>
+                `;
+            });
+            document.getElementById("clientes").innerHTML = html;
+        }
+        renderClientes();
+
+        // Crear cliente
+        document.getElementById("form-create-cliente").addEventListener("submit", e => {
+            e.preventDefault();
+            let nombre = document.getElementById("nombre").value;
+            let apellido = document.getElementById("apellido").value;
+            let email = document.getElementById("email").value;
+            let telefono = document.getElementById("telefono").value;
+            let nuevoCliente = { id: clientes.length + 1, nombre, apellido, email, telefono };
+            clientes.push(nuevoCliente);
+            renderClientes();
+            document.getElementById("modal-create-cliente").classList.remove("show");
+        });
+
+        // Editar cliente
+        document.addEventListener("click", e => {
+            if (e.target.classList.contains("btn-edit")) {
+                let id = e.target.dataset.id;
+                let cliente = clientes.find(c => c.id == id);
+                document.getElementById("nombre-edit").value = cliente.nombre;
+                document.getElementById("apellido-edit").value = cliente.apellido;
+                document.getElementById("email-edit").value = cliente.email;
+                document.getElementById("telefono-edit").value = cliente.telefono;
+                document.getElementById("modal-edit-cliente").classList.add("show");
+            }
+        });
+
+        document.getElementById("form-edit-cliente").addEventListener("submit", e => {
+            e.preventDefault();
+            let id = document.getElementById("modal-edit-cliente").dataset.id;
+            let cliente = clientes.find(c => c.id == id);
+            cliente.nombre = document.getElementById("nombre-edit").value;
+            cliente.apellido = document.getElementById("apellido-edit").value;
+            cliente.email = document.getElementById("email-edit").value;
+            cliente.telefono = document.getElementById("telefono-edit").value;
+            renderClientes();
+            document.getElementById("modal-edit-cliente").classList.remove("show");
+        });
+
+        // Eliminar cliente
+        document.addEventListener("click", e => {
+            if (e.target.classList.contains("btn-delete")) {
+                let id = e.target.dataset.id;
+                clientes = clientes.filter(c => c.id != id);
+                renderClientes();
+            }
+        });
+    </script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+</body>
